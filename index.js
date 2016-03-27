@@ -27,6 +27,41 @@ app.get('/',function(req,res){
     })
 })
 
+app.get('/register',function(req,res){
+    console.write('注册！');
+    res.render('index',{
+        title:'注册'
+    })
+})
+
+app.get('/login',function(req,res){
+    console.write('登录！');
+    res.render('index',{
+        title:'登录'
+    })
+})
+
+app.get('/quit',function(req,res){
+    console.write('退出！');
+    res.render('index',{
+        title:'退出'
+    })
+})
+
+app.get('/post',function(req,res){
+    console.write('发布！');
+    res.render('index',{
+        title:'发布'
+    })
+})
+
+app.get('/detail',function(req,res){
+    console.write('查看笔记！');
+    res.render('index',{
+        title:'查看笔记'
+    })
+})
+
 //监听3000端口
 app.listen(3000,function(req,res){
     console.log('app is running at port 3000')
