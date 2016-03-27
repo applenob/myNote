@@ -1,0 +1,14 @@
+.page-title{
+    font-size:20px;
+}
+
+.page-nav{
+    padding: 10px;
+    background-color: #ccc;
+    margin-bottom: 30px;
+}
+
+.nav-register,
+.nav-login{
+    margin: 0 10px;
+}
