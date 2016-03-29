@@ -13,6 +13,7 @@ var mongoose = require('mongoose');
 var models = require('./models/models');
 
 var User = models.User;
+var Note = models.Note;
 
 //使用mongoose连接服务
 mongoose.connect('mongodb://localhost:27017/notes');
@@ -156,13 +157,33 @@ app.get('/quit',function(req,res){
 app.get('/post',function(req,res){
     console.log('发布！');
     res.render('post',{
+        user:req.session.user,
         title:'发布'
     })
+});
+
+app.post('/post',function(req,res){
+    var note = new Note({
+        title:req.body.title,
+        author:req.session.user.username,
+        tag:req.body.tag,
+        content:req.body.content
+    });
+
+    note.save(function(err,doc){
+        if(err){
+            console.log(err);
+            return res.redirect('/post');
+        }
+        console.log('文章发表成功');
+        return res.redirect('/')
+    });
 });
 
 app.get('/detail',function(req,res){
     console.log('查看笔记！');
     res.render('index',{
+        user:req.session.user,
         title:'查看笔记'
     })
 });
