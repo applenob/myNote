@@ -5,7 +5,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var crypto = require('crypto');
-var session = require('express-ssion');
+var session = require('express-session');
 
 //引入mongoose
 var mongoose = require('mongoose');
@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 //建立session模型
 app.use(session({
-    secrete:'1234',
+    secret:'1234',
     name:'mynote',
     cookie:{maxAge:1000*60*20},//设置session的保存时间为20分钟
     resave:false,
@@ -115,6 +115,7 @@ app.post('/register',function(req,res){
 app.get('/login',function(req,res){
     console.log('登录！');
     res.render('login',{
+        user:req.session.user,
         title:'登录'
     })
 });
@@ -147,6 +148,7 @@ app.post('/login',function(req,res){
 });
 
 app.get('/quit',function(req,res){
+    req.session.user = null;
     console.log('退出！');
     return res.redirect('/login');
 });
