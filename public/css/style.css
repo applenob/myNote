@@ -1,0 +1,421 @@
+/*
+Theme Name: SIGNATURE - Version: 1 (shared on mafiashare.net)
+Description: Designed by <a href="http://themeforest.net/user/josweb">josweb</a>.
+Author: MafiaShare.net
+
+01. GENERAL 
+		1. Reset
+		2. Font Face
+		3. General Styling
+		4. Typography	
+		5. Dividers
+		6. Image Styles
+		
+02. LAYOUT
+		1. Header
+		2. Menu
+		3. Main Content
+		4. Columns
+		
+0.3 RESUME	
+		1. Image slider for Home Page
+        2. Services
+
+04. GALLERIES
+		1. Sortable Gallery
+        2. Slide Thumb Gallery
+		3. Thumbnail Gallery
+		
+05. CONTACT PAGE
+	    1. Contact Styling
+		2. Google Map
+		3. Contact Details List
+	    4. Contact Form
+	    5. Twitter
+		6. Footer
+*/
+
+
+
+/*  1. GENERAL
+    ........................................................................................................................................ */
+
+/* 1: Reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent }
+body { line-height:1 }
+ol, ul { list-style:none }
+blockquote, q { quotes:none }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none }:focus { outline:0 }
+.clear { clear:both; display:block; overflow:hidden; visibility:hidden; width:0; height:0 }
+.clearfix:after { clear:both; content:' '; display:block; font-size:0; line-height:0; visibility:hidden; width:0; height:0 }
+.clearfix { display:inline-block }
+* html .clearfix { height:1% }
+.clearfix { display:block }
+
+
+/* 2: Font Face */
+@font-face {
+    font-family: 'CardoRegular';
+    src: url('style/type/Cardo99s-webfont.eot');
+    src: url('style/type/Cardo99s-webfont.eot?#iefix') format('embedded-opentype'),
+         url('style/type/Cardo99s-webfont.woff') format('woff'),
+         url('style/type/Cardo99s-webfont.ttf') format('truetype'),
+         url('style/type/Cardo99s-webfont.svg#CardoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html, body { height: 100%; }
+
+/* 3: General Styling */
+
+body { font:  normal 12px 'Helvetica Neue', helvetica, arial, sans-serif; background:#fcfcfc url(../imgs/bg/light_grunge.jpg) repeat; color: #889397; overflow-y: scroll; overflow-x: hidden; }
+
+/* links ++++++++++++++++++++++++++++++++++++++++++++ */
+a { outline: none; text-decoration: none; color: #5f6d72; }
+a:hover  { outline: none; text-decoration: none; color: #555;  }
+a img { border: none; }
+
+/* button links ++++++++++++++++++++++++++++++++++++++++++++ */
+button {
+  background: #e3e3e3;
+  border: 1px solid #bbb;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  -webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  box-shadow: inset 0 0 1px 1px #f6f6f6;
+  color: #333;
+  font:bold 11px "Helvetica Neue", helvetica, arial, sans-serif;
+  text-decoration:none;
+  line-height: 1;
+  padding: 5px 0 6px;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+  width: 70px;
+}
+
+button:hover {
+  background: #d9d9d9;
+  -moz-box-shadow: inset 0 0 1px 1px #eaeaea;
+  -webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
+  box-shadow: inset 0 0 1px 1px #eaeaea;
+  color: #222;
+  cursor: pointer;
+}
+
+button:hover { cursor: pointer; }
+button::-moz-focus-inner { border:0; }
+
+/* bulleted list ++++++++++++++++++++++++++++++++++++++++++++ */
+ul.bullet { padding: 0 0 20px 0; display: block; overflow: hidden; }
+ul.bullet li { line-height: 22px; list-style: none; display: block; background: transparent url(../imgs/bullet.jpg) no-repeat left 10px; padding-left: 15px; }
+
+/* check list ++++++++++++++++++++++++++++++++++++++++++++ */
+ul.check_list { padding: 0 0 20px 0; display: block; overflow: hidden; }
+ul.check_list li { line-height: 22px; list-style: none; display: block; background: transparent url(../imgs/tick.png) no-repeat 0px 2px; padding-left: 25px; }
+
+/* quote styling ++++++++++++++++++++++++++++++++++++++++++++ */
+blockquote {float: left; font-family: Georgia, Times, serif; width: 600px; /* required */ margin: 0 auto; font-size: 13px; 
+}
+#quote_wrap { background: transparent url(../imgs/quote.png) no-repeat 0 8px; font-size: 1.2em; font-style: italic; line-height: 1.4em; margin: 20px 0 20px 0; padding: 0 0 0 45px;
+}
+
+/* 4: Typography */ 
+
+h1  { font: normal 24px "CardoRegular", serif;
+ background: transparent url(../imgs/line.png) repeat-x 0px 30px; display: block; color: #555; padding: 8px 0px 32px 0px; margin-bottom: 30px; height: 1px;
+text-shadow:1px 1px 0px #fcfcfc; letter-spacing: 1px;
+}
+
+h2 { font: normal 17px "CardoRegular", serif; margin-bottom: 10px; color: #869397; }
+h3 { font: normal 15px "CardoRegular", serif; margin-bottom: 10px; margin-top: 2px; color: #869397; }
+h4 { font-size: 12px; font-weight:normal; color: #869397; margin-bottom:10px; }
+
+/* 5: Dividers */ 
+
+.divider, .divider2, .divider3, .divider4 { background: transparent url(../imgs/diagonal_line.png) repeat-x bottom left; height: 4px; display: block; }
+.divider { margin: 25px 0px 25px 0px; }
+.divider2 { margin: 25px 0px 40px 0px; }
+.divider3 { margin: 40px 0px 45px 0px; }
+.divider4 { margin: 15px 0px 30px 0px; }
+
+/* 6: Image Styles */
+
+img.left, img.featured-left , img.right, img.featured-right , img.featured-single { 
+float: left; background: #fafafa; padding: 4px; border: 1px solid #ccc;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-o-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);}
+
+img.left{ float:left; margin: 6px 15px 0px 0px; }
+img.featured-left { float:left; margin: 2px 15px 0px 0px; }
+img.right{ float: right; margin: 6px 0px 0px 15px; } 
+img.featured-right { float: right; margin: 2px 0px 0px 15px; } 
+img.featured-single { float:left; margin: 0px 0px; }
+
+.job { background: url(../imgs/full-time.png) no-repeat 2px -1px; padding: 0px 5px 0px 27px; }
+.job h2 , .pen h2{ margin-bottom: 5px; }
+.pen { background: url(../imgs/pen.png) no-repeat 2px 0px; padding: 0px 5px 0px 27px; }
+
+/*  2. LAYOUT
+    ........................................................................................................................................ */
+
+/* 1: Header */ 
+
+/* top strip  ++++++++++++++++++++++++++++++++++++++++++++ */
+#strip { background: transparent url(../imgs/strip/check_strip.png) repeat-x 0px -15px; height: 83px; }
+
+/* container ++++++++++++++++++++++++++++++++++++++++++++ */
+#container { min-height: 100%; height: auto !important; height: 100%; padding: 0px 0px; margin: -70px auto -57px; }
+
+
+/* header ++++++++++++++++++++++++++++++++++++++++++++ */
+#header {width: 960px; height: 45px; margin: 0px auto 80px auto; }
+
+/* social links ++++++++++++++++++++++++++++++++++++++++++++ */
+ul.social {margin: 20px 10px 0px 0px; float: right; }
+ul.social li  { float: right; padding: 0px 8px 0px 0px; }
+ul.social a  { border:none;}
+
+/* logo ++++++++++++++++++++++++++++++++++++++++++++ */
+img.logo { margin-top: -15px; margin-left: -20px; float: left; }
+
+
+/* 2: Menu */
+
+ul#tab-menu { float:left; width: 210px; background-color: transparent; font: normal 15px "CardoRegular", serif; 
+margin: 0px 10px 0 0; padding: 38px 60px 0px 0px; list-style: none; 
+}
+
+ul#tab-menu li { border-top:1px dotted #bbb; cursor: pointer; padding: 10px 15px; margin: 0; color: #6B777C;
+}
+ul#tab-menu li:hover{ color: #54BBDD; }
+ul#tab-menu li.selected { color:  #6B777C; background: url(../imgs/red_ribbon.png) no-repeat 182px -3px;
+}
+/* Hack for IE \*/
+* html .ddsmoothmenu { height: 1%; } 
+/*Holly Hack for IE7 and below*/
+
+
+/* 3: Content */
+
+/* content wrapper ++++++++++++++++++++++++++++++++++++++++++++ */
+#wrapper { width: 960px; margin: 0 auto; padding: 0px 0px ; line-height: 20px; }
+
+/* content ++++++++++++++++++++++++++++++++++++++++++++ */
+.tab-content { line-height: 22px;padding-bottom:80px; background:transparent; width: 660px; float: left; }
+.tab-content div.tab { display: none; padding: 0; }
+.tab-content div.tab.show { display: block; }
+.tab-content div.tab p { width: 660px; overflow: hidden; padding: 0; margin: 0 0 15px 0;  }
+.tab-content div.tab div p { width: 100%; }
+
+
+/* 4: Columns */
+
+/* 2 columns per page ++++++++++++++++++++++++++++++++++++++++++++ */
+.one-half { position: relative; margin-right: 59px; float: left; margin-top: -10px; width: 300px; }
+.last { width: 300px; margin-top: -10px; margin-right: 0 !important; clear:right; }
+
+
+/*  3. Resume
+    ........................................................................................................................................ */
+
+/* 1: Image Slider For Biography Page */
+
+.wrap { float: right; clear: both; padding-right: 0px; width: 230px; margin: 7px 30px 45px 0px; }
+.notes_img { position: relative; float: right; clear: both; width: 200px; height: 200px; }
+.note { position: absolute; top: 0; left: 0; padding: 10px;background: #fff; border: 1px solid #D8D8D8; width: 200px;
+-moz-box-shadow: 0px 0px 4px #ddd;
+-webkit-box-shadow: 0px 0px 4px #ddd;
+box-shadow: 0px 0px 4px #ddd;
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.22, #ebebeb),
+    color-stop(0.44, #eff0ed),
+    color-stop(0.88, #fcfcfc)
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    #ebebeb 22%,
+    #eff0ed 44%,
+    #fcfcfc 88%
+);
+}
+ul.listNotes, ul.listNotes li { display: block; list-style: none; padding: 0; margin: 0; }
+
+/* star styling on resume ++++++++++++++++++++++++++++++++++++++++++++ */
+img.star { margin-top: 0px; float: right; }
+
+/* 2: Services - Accordian Styling */
+
+h2.acc_trigger { margin: 0; width: 660px; font: normal 15px "CardoRegular", serif; color: #869397; float: left ; padding:6px 0px 20px 0px;
+background: transparent url(../imgs/dashed_line.png) bottom repeat-x ; height: 20px; display: block; margin-bottom: 0px;  }
+h2.acc_trigger a {background: transparent url(../imgs/services2.png) no-repeat 0px 3px; color: #869397; text-decoration: none;
+display: block;height:30px; padding: 8px 0px 0px 30px; 
+}
+h2.acc_trigger a:hover {background: transparent url(../imgs/services1.png) no-repeat 0px 3px; color: #5d8ba6; }
+h2.active { background-position: left bottom; }
+.acc_container { margin: 0px 0px; padding: 0; overflow: hidden; width: 660px; clear: both;
+}
+.acc_container .block { padding: 20px 0px 10px 0px; }
+.acc_container h3 { font-size:12px; padding-bottom: 5px;
+font-size:14px;font-style:italic; }
+.acc_container img { float: left; margin: 8px 15px 0px 0; padding: 3px; background: #eee; border: 1px solid #ccc; }
+
+
+/*  4. Galleries
+    ........................................................................................................................................ */
+
+/* 1: Sortable Gallery - (inner_tab is the styling for tabs on all pages */
+#portfolio ul li { padding: 0;margin-bottom:12px; }
+#wrapper ul.grid { width: 680px; overflow: hidden; margin: -20px 0 0px -21px; padding: 12px; }
+ul.grid:after { content: ""; display: block; height: 0; overflow: hidden; clear: both; }
+ul.grid li { width: 155px; height: 102px;border:1px solid #ccc; margin-left: 10px; float: left; overflow: hidden; background: #fafafa; 
+box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-o-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+}
+ul.grid li a { outline:0;  }
+ul.grid li img { display: block; width: 145px; height: 92px; margin: 5px 0px 0px 5px; }
+ul.gallerynav, ul.inner_tab { width: 660px;
+ margin: 0 auto 38px -17px ; height: 14px; }
+ul.gallerynav li, ul.inner_tab li{ float: left; border-right: 1px dotted #bebebe; }
+ul.gallerynav li a, ul.inner_tab li a { float: left;text-transform: uppercase; font: normal 11px "Helvetica Neue", helvetica, arial, sans-serif; 
+color: #6B777C; 
+margin: 0px 3px 0px 3px; padding: 0px 15px 0px 15px; }
+ul.gallerynav li a:hover, ul.inner_tab li a:hover { text-decoration: none; color: #54bbdd; }
+ul.gallerynav li.selected-1 a { color: #5d8ba6; }
+.hidden { display: none; }
+
+/* 2: Featured Work - Slide Thumb Gallery */
+#preview_wrap {margin: -5px auto 0px auto; padding-top: 14px;
+width: 660px; height: 289px; background: url('../imgs/slider.png') top left no-repeat; }
+#preview_outer { overflow: hidden; width: 620px; height: 232px;margin:0px auto; position: relative; }
+#preview_inner { text-align: left; height: 100%; position: relative; }
+#preview_inner div { float: left; width: 620px; height: 232px; position: relative; }
+#preview_inner div a { position: absolute; bottom: 0; left: 0;	 display: block;
+width: 100%; text-indent: 20px; padding: 3px 0; color: #bbb; background: url(../imgs/bg_trans.png); text-decoration: none; font-size: 14px; }
+#preview_inner div a:hover { color: #ccc; }
+
+#thumbs { position: relative; width: 660px; text-align: center;	}
+#thumbs span {margin: -19px 0px 15px 10px; padding: 3px; width: 40px; height: 40px; cursor: pointer; border: 1px solid #ccc; background: #fafafa; 
+box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-o-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+display: inline-block;
+} 
+#arrow { position: absolute; top: -43px; background: url(../imgs/slide_thumb_arrow.png) no-repeat 0px 0px; width: 68px; height: 27px; display: none;
+}
+
+
+/* 3: Thumbnail Gallery */
+
+/* thumbnail gallery background frame ++++++++++++++++++++++++++++++++++++++++++++ */
+.gal { float: left; margin: -8px 10px 20px 0px; width: 155px; height: 102px; overflow: hidden; background: #fafafa; border: 1px solid #ccc;
+box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-o-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+/* thumbnail gallery background frame - last on row ++++++++++++++++++++++++++++++++++++++++++++ */
+.gallast { float: left; margin: -8px 0px 20px 0px; width: 155px; height: 102px; overflow: hidden; background: #fafafa; border:1px solid #ccc;
+box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-o-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+/* thumbnail gallery picture ++++++++++++++++++++++++++++++++++++++++++++ */
+.gal2 { padding: 2px; width: 145px; height: 92px; float: left; margin: 3px; }
+
+
+/*  5. Contact Page
+    ........................................................................................................................................ */
+
+/* 1: Contact Styling */
+/* left column to contain form ++++++++++++++++++++++++++++++++++++++++++++ */
+.contact-left { width: 420px; float: left; margin-top: 20px; }
+
+/* right column to contain contact details ++++++++++++++++++++++++++++++++++++++++++++ */
+.contact-right { width: 220px; float: right; margin-top: 10px; }
+
+/* 2: Google Map */
+#map {border: 1px solid #ccc; width: 215px; 
+height: 114px; margin-bottom: 20px;}	
+/* hide direction arrows */									
+.gmnoprint {display:none; }
+
+
+/* 3: Contact Details List */
+
+ul.contact-list { padding: 0px 0px; display: block; overflow: hidden; 
+}
+ul.contact-list li { line-height: 20px; list-style: none;  display: block; padding-bottom: 15px; 
+}
+.home{background-image:url('../imgs/home.png');background-repeat: no-repeat; padding-left: 35px;background-position: 0px -4px;
+}
+.phone{background-image:url('../imgs/telephone.png'); background-repeat: no-repeat; padding-left: 35px; background-position: 0px -3px;
+}
+.email{background-image:url('../imgs/email.png'); background-repeat: no-repeat; padding-left: 35px; background-position: 0px -2px;
+}
+.pdf{background-image:url('../imgs/pdf.png');background-repeat: no-repeat; padding-left: 35px ;background-position: 0px -3px;
+}
+
+
+/* 4: Contact Form */
+
+.hide { font: normal 13px 'CardoRegular', serif; display: none; color: #444; }
+input { outline: none; display: block; }
+#form_name, #form_email, textarea { font: normal 13px 'CardoRegular', serif; margin: -38px 0px 20px 70px; padding: 5px;
+width: 320px; border: 0px solid #ccc; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px;}
+.label { font: normal 12px  'Helvetica Neue', sans-serif; margin-top: 10px; color: #8691a0;}
+textarea { font: normal 13px  'CardoRegular', serif; width: 320px; height: 130px; padding: 5px; margin: -35px 0px 5px 70px; }
+#form_submit { font: normal 12px  'CardoRegular', serif; letter-spacing: 1px; outline: 0; padding: 4px 5px;
+background: transparent url(../imgs/form_button.png) no-repeat 0px 0px; height: 42px; width: 100px; text-decoration: none; color: #333; text-shadow: 0px 1px 0px #fff; border: none; text-transform: uppercase; cursor: pointer; margin-left: 67px; margin-top: 0px; }
+#form_name, #form_email, textarea { background-color: #e8e8e8; border: #ccc #edede #FFFFFF; border-style: solid; border-width: 1px; color: #666; }
+#reset { font: normal 12px  'CardoRegular', serif; letter-spacing: 1px; outline: 0; padding: 4px 5px; background: transparent url(../imgs/form_button.png)
+no-repeat 0px 0px; height: 42px; width: 100px; text-decoration: none; color: #333; text-shadow: 0px 1px 0px #fff; border: none; text-transform: uppercase; cursor: pointer; 
+margin-left: 170px; margin-top: -42px; 
+}
+
+/*for FireFox*/
+input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner , input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner 
+{ border : 0px; } 
+/*for IE8 */
+input[type="reset"]:focus, input[type="button"]:focus , input[type="submit"]:focus, input[type="button"]:focus
+{ outline : none; }
+
+/* 5: Twitter */
+
+#twitter-wrapper {font: normal 13px 'CardoRegular', serif; float: left; clear: both; margin: 50px 0px 0px -20px; position: relative; width:680px; }
+#tweet { padding: 0px 0; background: transparent url(../imgs/twitter-bird.png) no-repeat 20px center; min-height: 28px; }
+.tweeter{ background: none; padding: 5px 80px 5px 65px; }
+#tweet ul { padding: 0; margin: 0; }
+#tweet ul li { background: none; padding: 5px 0px 5px 65px; line-height: 20px; }
+#tweet ul li a { color: #5d8ba6; text-decoration: none; border: none;}
+#tweet ul li a:hover { text-decoration: underline; }
+.username {font: italic normal 12px 'CardoRegular', serif; background: transparent; float:right;  }
+.username a { color: #5d8ba6; }
+
+
+/* 6: Footer */
+
+#footer-wrapper, .push { height: 57px; clear: both;/* .must be the same height as .footer */ }
+#footer-wrapper { height: 45px; padding-top:10px; }
+#footer { min-width: 960px; height: 45px; background: transparent url(../imgs/strip/check_strip.png) repeat-x 0px 0px; border-top: 2px solid #999; }
+#footer-content a{ border:none; color: #aaa; }
+#footer-content a:hover{border:none; color: #ccc; }
+#footer-content { width: 960px; height: 45px; margin: 0 auto; position: relative; }
+#copyright { float: left; position: absolute; top: 18px;left: 0; }
+#copyright p { font-size: 11px; margin: 0; }
+#back-top {float: right; position: relative; top: 16px; }
+

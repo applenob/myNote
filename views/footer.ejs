@@ -1,5 +1,23 @@
 <!--JavaScript 放置在文档最后面可以使页面加载速度更快。-->
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    </body>
-    </html>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="/js/quicksand.js"></script>
+<script type="text/javascript" src="/js/scripts.js"></script>
+<script type="text/javascript" src="/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="/js/twitter.min.js"></script>
+<script src="/js/jquery.form.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function() {
+        $('#submitform').ajaxForm({
+            target: '#error',
+            success: function() {
+                $('#error').fadeIn('slow');
+            }
+        });
+    });
+    //]]>
+</script>
+</body>
+</html>

@@ -1,23 +1,110 @@
 <%- include header%>
-        <div class="containner">
-            <div class="jumbotron">
-                <h1>我的第一个BootStrap页面--cer</h1>
-                <p>重置窗口大小，查看响应式效果！</p>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>第一列</h3>
-                    <p>111111lalala11111</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>第二列</h3>
-                    <p>22222hahaha222222</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>第三列</h3>
-                    <p>333333bababa33333</p>
-                </div>
-            </div>
+<div id="strip"></div>
+
+<div id="container">
+    <!-- Begin Header -->
+
+    <div id="header">
+        <img src="/imgs/logo.png" width="248" height="134" alt="" class="logo" /> <!-- Begin Social Links -->
+
+        <ul class="social">
+            <li><a href="#"><img src="/imgs/social/rss.png" width="16" height="16" alt="" title="This is a Tool Tip"
+                                 class="link" /></a></li>
+
+            <li><a href="#"><img src="/imgs/social/twitter.png" width="16" height="16" alt="" title=
+                    "This is a Tool Tip" class="link" /></a></li>
+
+            <li><a href="#"><img src="/imgs/social/dribbble.png" width="16" height="16" alt="" title=
+                    "This is a Tool Tip" class="link" /></a></li>
+
+            <li><a href="#"><img src="/imgs/social/deviantart.png" width="16" height="16" alt="" title=
+                    "This is a Tool Tip" class="link" /></a></li>
+
+            <li><a href="#"><img src="/imgs/social/behance.png" width="16" height="16" alt="" title=
+                    "This is a Tool Tip" class="link" /></a></li>
+
+            <li><a href="#"><img src="/imgs/social/facebook.png" width="16" height="16" alt="" title=
+                    "This is a Tool Tip" class="link" /></a></li>
+        </ul><!-- End Social Links -->
+    </div><!-- End Header -->
+
+
+        <div id="wrapper">
+            <!-- Left Menu Links -->
+
+            <div id="smoothmenu1">
+                <!--左边列表-->
+                <ul id="tab-menu" class="ddsmoothmenu">
+                    <li>欢迎</li>
+
+                    <li>日记列表</li>
+
+                    <li>分类查看</li>
+
+                    <li>按日期查看</li>
+
+                    <li>按点击量查看</li>
+
+                    <li>联系</li>
+                </ul><!-- Introduction Page Starts -->
+
+                <div class="tab-content">
+                    <div class="tab show">
+                        <h1>日记本应用&nbsp;&nbsp;&nbsp;&nbsp;----陈俊文</h1>
+                        <!-- SLIDER GALLERY - ADD YOUR PHOTOS HERE -->
+
+                        <!--<div id="sliderbg">-->
+                            <!--<div id="slider-wrapper">-->
+                                <!--<div class="ribbon"></div>-->
+                                <!--<div id="slider" class="nivoSlider">-->
+                                    <img src="/imgs/slider1.jpg" alt="" title="图片1" />
+                                    <!--<img src="/imgs/slider2.jpg" alt="" />-->
+                                    <!--<img src="/imgs/slider3.jpg" alt="" />-->
+                                <!--</div>-->
+                                <!--<script type="text/javascript">-->
+                                    <!--//<![CDATA[-->
+                                    <!--$(window).load(function() {-->
+                                        <!--$('#slider').nivoSlider();-->
+                                    <!--});-->
+                                    <!--//]]>-->
+                                <!--</script>-->
+                            <!--</div>-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--</div>-->
+                    </div>
+
+                    <div class="containner">
+                            <div class="row">
+                                <% if(notes){ %>
+                                <table class="table table_striped">
+                                    <caption>我的笔记列表</caption>
+                                    <thead>
+                                    <tr>
+                                        <th>标题</th>
+                                        <th>标签</th>
+                                        <th>日期</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <% notes.forEach(function(note){%>
+                                    <tr>
+                                        <td><a href="/detail/<%= note._id %>"><%= note.title%></a></td>
+                                        <td><%= note.tag %></td>
+                                        <td><%= note.createTime %></td>
+                                    </tr>
+                                    <% });%>
+                                    </tbody>
+                                </table>
+                                <%}%>
+                            </div>
+                        </div>
+
+                    <div class="clearfix"></div>
+                </div><!-- End -->
+                <!-- TWITTER - ADD YOUR USERNAME IN ID INSTEAD OF MINE -->
+                <div class="clear"></div>
         </div>
+    </div>
+    </div>
 
 <%- include footer%>

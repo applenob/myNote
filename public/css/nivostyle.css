@@ -1,0 +1,96 @@
+
+#slider-wrapper {
+    background:url(../images/slider.png) no-repeat;
+    width:660px;
+    height:289px;
+    margin:0 0 0px 3px;
+    padding-top:17px;
+    position:relative;
+}
+
+#slider {
+    position:relative;
+    width:620px;
+    height:232px;
+    margin-left:19px;
+    background:url(../imgs/loader.gif) no-repeat 50% 50%;
+}
+#slider img {
+    position:absolute;
+    top:0px;
+    left:0px;top:-2px;
+    display:none;
+    width:620px; /* Make sure your images are the same size */
+    height:232px; /* Make sure your images are the same size */
+}
+#slider a {
+    border:0;
+    display:block;
+}
+
+.nivo-controlNav {
+    position:absolute;
+	left:50%;
+	bottom:-35px;
+    margin-left:-30px; /* Tweak this to center bullets */
+}
+.nivo-controlNav a {
+    display:block;
+    width:10px;
+    height:10px;
+    background:url(../imgs/bullets.png) no-repeat;
+    text-indent:-9999px;
+    border:0;
+    margin-right:7px;
+    float:left;
+}
+.nivo-controlNav a.active {
+    background-position:0 -10px;
+}
+
+.nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	background:url(../imgs/arrows.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+a.nivo-nextNav {
+	background-position:-30px 0;
+	right:15px;
+}
+
+a.nivo-prevNav {
+	left:15px;
+}
+
+
+.nivo-caption {width:610px;clear:both; 
+    font-family: Helvetica, Arial, sans-serif;padding-left:10px;
+}
+.nivo-caption a { 
+    color:#fff;
+    border-bottom:1px dotted #fff;
+}
+.nivo-caption a:hover { 
+    color:#fff;
+}
+
+/* Add your ribbon here */
+.ribbon {
+    background:url(../imgs/featured.png) no-repeat;
+    width:111px;
+    height:111px;
+    position:absolute;
+    top:-6px;
+    left:-7px;
+    z-index:300;
+}
+
+/*====================*/
+/*=== Other Styles ===*/
+/*====================*/
+.clear {
+	clear:both;
+}
