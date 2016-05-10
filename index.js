@@ -35,17 +35,132 @@ passport.use('loginByWeixin',new WeixinStrategy({
 //    done(null, profile);
 //}));
 
-//引入mongoose
-var mongoose = require('mongoose');
-//引入模型
-var models = require('./models/models');
 
-var User = models.User;
-var Note = models.Note;
+/**
+ * 演示 waterilne 的使用
+ */
 
-//使用mongoose连接服务
-mongoose.connect('mongodb://localhost:27017/notes');
-mongoose.connection.on('error',console.error.bind(console,'连接数据库失败'));
+var Waterline = require('waterline');
+var mysqlAdapter = require('sails-mysql');
+var mongoAdapter = require('sails-mongo');
+var model;
+
+// 适配器
+var adapters = {
+    default: 'mysql',
+    mongo: mongoAdapter,
+    mysql: mysqlAdapter
+};
+
+// 连接
+var connections = {
+    mysql: {
+        adapter: 'mysql',
+        url: 'mysql://root:123456@localhost/waterlinesample'
+    },
+    //mongo: {
+    //    adapter: 'mongo',
+    //    url: 'mongodb://localhost/watereline-sample'
+    //}
+};
+
+// 数据集合
+var User = Waterline.Collection.extend({
+    identity: 'user',
+    connection: 'mysql',
+    schema: true,
+    attributes: {
+        username: {
+            type: 'string',
+            // 校验器
+            required: true
+        },
+        password:{
+          type:'string'
+        },
+        birthday: {
+            type: 'date',
+            after: new Date('1900-01-01'),
+            before: function() {
+                return new Date();
+            }
+        },
+        createTime: {
+            type: 'date'
+        }
+    },
+    migrate:'safe',
+    // 生命周期回调
+    beforeCreate: function(value, cb){
+        value.createTime = new Date();
+        console.log('beforeCreate executed');
+        return cb();
+    }
+});
+
+var Note = Waterline.Collection.extend({
+    identity: 'note',
+    connection: 'mysql',
+    schema: true,
+    attributes: {
+        title: {
+            type: 'string',
+            // 校验器
+            required: true
+        },
+        author: {
+            type: 'string',
+            required: true
+        },
+        tag: {
+            type: 'string',
+            required: true
+        },
+        content: {
+            type: 'string',
+            required: true
+        },
+        createTime: {
+            type: 'date'
+        }
+    }
+});
+
+var orm = new Waterline();
+
+// 加载数据集合
+orm.loadCollection(User);
+orm.loadCollection(Note);
+
+var config = {
+    adapters: adapters,
+    connections: connections
+};
+
+orm.initialize(config, function(err, models){
+    if(err) {
+        console.error('orm initialize failed.', err);
+        return;
+    }
+
+    //console.log('models:', models);
+    model = models;
+    //models.collections.user.create({username: 'Sid'}, function(err, user){
+    //    console.log('after user.create, err, user:', err, user);
+    //});
+});
+
+////引入mongoose
+//var mongoose = require('mongoose');
+////引入模型
+//var models = require('./models/models');
+//
+//var User = models.User;
+//var Note = models.Note;
+//
+////使用mongoose连接服务
+//mongoose.connect('mongodb://localhost:27017/notes');
+//mongoose.connection.on('error',console.error.bind(console,'连接数据库失败'));
 
 //创建express实例
 var app = express();
@@ -73,7 +188,8 @@ app.use(session({
 //响应首页get请求
 app.get('/',function(req,res){
     if(req.session.user != null){
-        Note.find({author:req.session.user.username})
+        //Note.find({author:req.session.user.username})
+        model.collections.note.find().where({author:req.session.user.username})
             .exec(function(err,allNotes){
                 if(err){
                     console.log(err);
@@ -136,7 +252,7 @@ app.post('/register',function(req,res){
     }
 
     //检查用户名是否已经存在，如果不存在，则保存该条记录
-    User.findOne({username:username},function(err,user){
+    model.collections.user.findOne({username:username},function(err,user){
         if(err){
             console.log(err);
             return res.redirect('/register');
@@ -150,12 +266,14 @@ app.post('/register',function(req,res){
         var md5 = crypto.createHash('md5'),
             md5password = md5.update(password).digest('hex');
         //新建user对象用于保存数据
-        var newUser = new User({
-            username: username,
-            password:md5password
-        });
-
-        newUser.save(function(err, doc){
+        //var newUser = new User({
+        //    username: username,
+        //    password:md5password
+        //});
+        model.collections.user.create({
+                username: username,
+                password:md5password
+            }).exec(function(err, doc){
             if(err){
                 console.log(err);
                 return res.redirect('/register');
@@ -164,6 +282,15 @@ app.post('/register',function(req,res){
             //alert("注册成功！");
             return res.redirect('/');
         });
+        //newUser.save(function(err, doc){
+        //    if(err){
+        //        console.log(err);
+        //        return res.redirect('/register');
+        //    }
+        //    console.log('注册成功！');
+        //    //alert("注册成功！");
+        //    return res.redirect('/');
+        //});
     });
 });
 
@@ -182,7 +309,8 @@ app.get('/login',function(req,res){
 app.post('/login',function(req,res){
     var username = req.body.username,
         password = req.body.password;
-    User.findOne({username:username},function(err,user){
+    //User.findOne({username:username},function(err,user){
+    model.collections.user.findOne().where({username:username}).exec(function(err,user){
         if(err){
             console.log(err);
             return res.redirect('/login');
@@ -195,6 +323,7 @@ app.post('/login',function(req,res){
         //对密码进行mad5加密
         var md5 = crypto.createHash('md5'),
             md5password = md5.update(password).digest('hex');
+        console.log("读取的密码："+user.password);
         if(user.password != md5password){
             console.log('密码错误！');
             //alert("密码错误！");
@@ -205,7 +334,7 @@ app.post('/login',function(req,res){
         delete user.password;
         req.session.user = user;
         return res.redirect('/')
-    })
+    });
 });
 
 app.get('/quit',function(req,res){
@@ -223,16 +352,23 @@ app.get('/post',function(req,res){
 });
 
 app.post('/post',function(req,res){
-    var note = new Note({
-        title:req.body.title,
-        author:req.session.user.username,
-        tag:req.body.tag,
-        content:req.body.content
-    });
+    //var note = new Note({
+    //    title:req.body.title,
+    //    author:req.session.user.username,
+    //    tag:req.body.tag,
+    //    content:req.body.content
+    //});
 
-    note.save(function(err,doc){
+    //note.save(function(err,doc){
+    model.collections.note.create({
+            title:req.body.title,
+            author:req.session.user.username,
+            tag:req.body.tag,
+            content:req.body.content
+    }).exec(function(err){
         if(err){
             console.log(err);
+            console.log('文章发表失败');
             return res.redirect('/post');
         }
         console.log('文章发表成功');
@@ -242,7 +378,7 @@ app.post('/post',function(req,res){
 
 app.get('/detail/:_id',function(req,res){
     console.log('查看笔记！');
-    Note.findOne({_id:req.params._id})
+    model.collection.note.findOne({_id:req.params._id})
         .exec(function(err,art){
             if(err){
                 console.log(err);
